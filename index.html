@@ -1,93 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Wayne's Hub</title>
-    <style>
-        body {
-            background-color: #111;
-            color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-        }
-        h1 {
-            margin-top: 40px;
-        }
-        .menu {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 50px;
-        }
-        .menu button {
-            margin: 15px;
-            padding: 20px 30px;
-            font-size: 18px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            background-color: #333;
-            color: white;
-            transition: 0.3s;
-        }
-        .menu button:hover {
-            background-color: #555;
-        }
-        .gallery img {
-            width: 150px;
-            margin: 15px;
-            cursor: pointer;
-            border-radius: 8px;
-            transition: 0.3s;
-        }
-        .gallery img:hover {
-            transform: scale(1.1);
-        }
-    </style>
+<meta charset="UTF-8">
+<title>Wayne's Hub</title>
+<style>
+    body {
+        background-color: #111;
+        color: white;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 0;
+    }
+    h1 {
+        margin-top: 40px;
+    }
+    .menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 50px;
+    }
+    .menu button {
+        margin: 15px;
+        padding: 20px 30px;
+        font-size: 18px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        background-color: #333;
+        color: white;
+        transition: 0.3s;
+    }
+    .menu button:hover { background-color: #555; }
+    .gallery img {
+        width: 150px;
+        margin: 15px;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: 0.3s;
+    }
+    .gallery img:hover { transform: scale(1.1); }
+    #backButton {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        display: none;
+        cursor: pointer;
+        border-radius: 8px;
+        border: none;
+        background-color: #333;
+        color: white;
+    }
+    #backButton:hover { background-color: #555; }
+</style>
 </head>
 <body>
-    <h1>Wayne's Home Screen</h1>
 
-    <div class="menu">
-        <button onclick="showGallery()">Gallery</button>
-        <button onclick="alert('Music page coming soon!')">Music</button>
-        <button onclick="alert('Games page coming soon!')">Games</button>
-        <button onclick="alert('Documents page coming soon!')">Documents</button>
-        <button onclick="alert('Riddims page coming soon!')">Riddims</button>
-        <button onclick="alert('Notes page coming soon!')">Notes</button>
-        <button onclick="alert('School page coming soon!')">School</button>
-        <button onclick="alert('Work page coming soon!')">Work</button>
-    </div>
+<h1>Wayne's Hub</h1>
 
-    <div id="content"></div>
+<div class="menu" id="menu">
+    <button onclick="showGallery()">Gallery</button>
+    <button onclick="alert('Music page coming soon!')">Music</button>
+    <button onclick="alert('Games page coming soon!')">Games</button>
+    <button onclick="alert('Documents page coming soon!')">Documents</button>
+    <button onclick="alert('Riddims page coming soon!')">Riddims</button>
+    <button onclick="alert('Notes page coming soon!')">Notes</button>
+    <button onclick="alert('School page coming soon!')">School</button>
+    <button onclick="alert('Work page coming soon!')">Work</button>
+</div>
 
-    <script>
-        // Example gallery images (replace with your GitHub image URLs)
-        const images = [
-            "https://raw.githubusercontent.com/USERNAME/REPO/main/images/photo1.jpg",
-            "https://raw.githubusercontent.com/USERNAME/REPO/main/images/photo2.jpg",
-            "https://raw.githubusercontent.com/USERNAME/REPO/main/images/photo3.jpg"
-        ];
+<button id="backButton" onclick="goHome()">Back</button>
+<div id="content"></div>
 
-        function showGallery() {
-            const content = document.getElementById("content");
-            content.innerHTML = ""; // clear current content
+<script>
+const content = document.getElementById("content");
+const menu = document.getElementById("menu");
+const backButton = document.getElementById("backButton");
 
-            const gallery = document.createElement("div");
-            gallery.className = "gallery";
+// Add your uploaded images here
+const images = [
+    "images/FB_IMG_1740809258178.jpg",
+    "images/IMAG0002.jpg",
+    "images/IMG_20240101_114558.jpg",
+    "images/IMG_20251231_144716859.jpg",
+    "images/IMG_20251231_144726751_HDR.jpg",
+    "images/IMG_20260102_111720204_HDR~2.jpg",
+    "images/Screenshot 2025-08-02 02.29.52.png",
+    "images/Screenshot_20240906_100709_WhatsAppBusiness.jpg",
+    "images/Screenshot_20240921_144946_Lite.jpg",
+    "images/Snapchat-1643766570.jpg",
+    "images/best pic ever wayne.png"
+];
 
-            images.forEach(src => {
-                const img = document.createElement("img");
-                img.src = src;
-                img.onclick = () => {
-                    window.open(src, "_blank"); // open full image in new tab
-                };
-                gallery.appendChild(img);
-            });
+function showGallery() {
+    menu.style.display = "none";
+    backButton.style.display = "inline-block";
+    content.innerHTML = "";
 
-            content.appendChild(gallery);
-        }
-    </script>
+    const gallery = document.createElement("div");
+    gallery.className = "gallery";
+
+    images.forEach(src => {
+        const img = document.createElement("img");
+        img.src = src;
+        img.alt = "Wayne's Photo";
+        img.onclick = () => window.open(src, "_blank"); // open full-size
+        gallery.appendChild(img);
+    });
+
+    content.appendChild(gallery);
+}
+
+function goHome() {
+    content.innerHTML = "";
+    menu.style.display = "flex";
+    backButton.style.display = "none";
+}
+</script>
+
 </body>
 </html>
+
