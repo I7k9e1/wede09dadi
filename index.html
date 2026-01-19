@@ -44,50 +44,16 @@
         .gallery img:hover {
             transform: scale(1.1);
         }
-    </style>
-</head>
-<body>
-    <h1>Wayne's Home Screen</h1>
-
-    <div class="menu">
-        <button onclick="showGallery()">Gallery</button>
-        <button onclick="alert('Music page coming soon!')">Music</button>
-        <button onclick="alert('Games page coming soon!')">Games</button>
-        <button onclick="alert('Documents page coming soon!')">Documents</button>
-        <button onclick="alert('Riddims page coming soon!')">Riddims</button>
-        <button onclick="alert('Notes page coming soon!')">Notes</button>
-        <button onclick="alert('School page coming soon!')">School</button>
-        <button onclick="alert('Work page coming soon!')">Work</button>
-    </div>
-
-    <div id="content"></div>
-
-    <script>
-        // Example gallery images (replace with your GitHub image URLs)
-        const images = [
-            "https://raw.githubusercontent.com/USERNAME/REPO/main/images/photo1.jpg",
-            "https://raw.githubusercontent.com/USERNAME/REPO/main/images/photo2.jpg",
-            "https://raw.githubusercontent.com/USERNAME/REPO/main/images/photo3.jpg"
-        ];
-
-        function showGallery() {
-            const content = document.getElementById("content");
-            content.innerHTML = ""; // clear current content
-
-            const gallery = document.createElement("div");
-            gallery.className = "gallery";
-
-            images.forEach(src => {
-                const img = document.createElement("img");
-                img.src = src;
-                img.onclick = () => {
-                    window.open(src, "_blank"); // open full image in new tab
-                };
-                gallery.appendChild(img);
-            });
-
-            content.appendChild(gallery);
+        #backButton {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            display: none;
+            cursor: pointer;
+            border-radius: 8px;
+            border: none;
+            background-color: #333;
+            color: white;
         }
-    </script>
-</body>
-</html>
+        #backBu
+
