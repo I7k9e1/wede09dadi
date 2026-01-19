@@ -1,2 +1,2 @@
-# wede09dadi
-Gallery yangu yemapics — straight from the source 📸🔥
+ Alwayne Dadirai
+ My Online Gallery 
